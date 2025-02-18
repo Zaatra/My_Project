@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@react-map/world": "^1.0.13",
-    "react-toastify": "^11.0.3"
+    "react-toastify": "^11.0.3",
+    "vite": "^6.1.0"
   }
 }

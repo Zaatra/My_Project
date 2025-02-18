@@ -1,0 +1,496 @@
+/* General Reset and Body Styles (adjust as needed based on index.css) */
+body {
+    font-family: 'Inter', sans-serif; /* Or a similar sans-serif font */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light grey background like Electricity Maps */
+    color: #333; /* Dark text color */
+    display: flex; /* For basic alignment, adjust if needed */
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start; /* Align items to the start vertically */
+    min-height: 100vh;
+}
+
+.electricity-maps-app {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensure it's 100% width */
+    min-width: 100vw; /* Also try viewport width */
+    /* max-width: 1920px;  Ensure max-width is still commented out */
+}
+
+/* Header Styles - No changes needed for responsiveness in this section for now */
+.electricity-maps-header {
+    background-color: #fff; /* White header background */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0; /* Light border */
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #2c3e50; /* Darker logo color */
+    margin-right: 20px;
+}
+
+.header-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.header-nav li {
+    margin-left: 15px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #555; /* Grey navigation links */
+    font-size: 0.95em;
+}
+
+.header-nav a:hover {
+    color: #3498db; /* Example hover color */
+}
+
+.header-right .toggle-group,
+.header-right .zoom-plus,
+.header-right .access-api-button {
+    margin-left: 10px; /* Reduced margin for smaller screens */
+}
+
+.header-right .toggle-group {
+    display: flex;
+    border: 1px solid #e0e0e0; /* Border for toggle group */
+    border-radius: 5px;
+    overflow: hidden; /* To contain border-radius */
+}
+
+.header-right .toggle-button {
+    background-color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    color: #555;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.header-right .toggle-button.active {
+    background-color: #e0e0e0; /* Active toggle color */
+    font-weight: bold;
+}
+
+.header-right .toggle-button:not(.active):hover {
+    background-color: #f8f8f8; /* Hover for inactive toggle */
+}
+
+.header-right .info-icon {
+    font-size: 0.8em;
+    color: #777;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.header-right .zoom-plus {
+    background-color: #3498db; /* Example zoom button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.header-right .zoom-plus:hover {
+    background-color: #2980b9; /* Darker hover color */
+}
+
+.header-right .access-api-button {
+    background-color: #2ecc71; /* Example API button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.header-right .access-api-button:hover {
+    background-color: #27ae60; /* Darker hover color */
+}
+
+
+/* App Body Layout (Sidebars and Map) */
+.app-body {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - /* Header height, adjust if necessary */ 60px ); /* Example, adjust header height */
+}
+
+.left-sidebar {
+    width: 300px; /* Default sidebar width for larger screens */
+    background-color: #fff;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    overflow-y: auto; /* Enable scroll if content overflows */
+    height: 100%; /* Ensure sidebar takes full height of app body */
+}
+
+.map-container {
+    flex-grow: 1; /* Map takes remaining space */
+    background-color: #eee; /* Light grey map background placeholder */
+    height: 100%; /* Ensure map container takes full height */
+}
+
+.right-sidebar {
+    width: 80px; /* Default right sidebar width */
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center controls horizontally */
+    height: 100%; /* Ensure right sidebar takes full height */
+}
+
+/* Left Sidebar Content Styles - No changes needed for responsiveness in this section for now */
+.sidebar-header h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.sidebar-header p {
+    font-size: 0.9em;
+    color: #777;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    width: calc(100% - 22px); /* Adjust for padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.ranked-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ranked-list li {
+    padding: 8px 0;
+    font-size: 0.9em;
+    color: #444;
+    display: flex;
+    align-items: center; /* Vertically align flag and text */
+}
+
+.ranked-list li span {
+    margin-right: 8px;
+}
+
+.ranked-list li span.flag {
+    font-size: 1.2em; /* Adjust flag size */
+}
+.ranked-list li span.location {
+    color: #777;
+    margin-left: auto; /* Push location to the right */
+    font-size: 0.85em;
+}
+
+
+.about-section {
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 15px;
+}
+
+.about-section summary {
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    outline: none; /* Remove default focus outline */
+}
+
+.about-content {
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.datetime-controls {
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 15px;
+}
+
+.timeline-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.timeline-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 6px 10px;
+    font-size: 0.85em;
+    color: #555;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.timeline-button:hover {
+    background-color: #e0e0e0;
+}
+
+.date-time-picker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.date-time-picker button {
+    background: none;
+    border: none;
+    font-size: 1em;
+    color: #555;
+    cursor: pointer;
+}
+.date-time-picker span {
+    font-size: 0.9em;
+    color: #444;
+    margin: 0 10px;
+}
+
+.time-slider {
+    /* Style the slider bar and handle as needed */
+}
+.slider-bar {
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 4px;
+    position: relative;
+}
+.slider-handle {
+    position: absolute;
+    top: -4px; /* Adjust to center handle on the bar */
+    left: 20%; /* Example position */
+    width: 16px;
+    height: 16px;
+    background-color: #3498db; /* Example handle color */
+    border-radius: 50%;
+    cursor: grab;
+}
+.time-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 5px;
+}
+
+
+/* Right Sidebar Controls - No changes needed for responsiveness in this section for now */
+.right-sidebar .zoom-controls {
+    /* Zoom controls can be styled within MyMap.jsx if using a library */
+    margin-bottom: 20px; /* Add spacing below zoom controls */
+}
+.right-sidebar .other-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center buttons */
+}
+
+
+.right-sidebar .control-button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 8px;
+    width: 40px; /* Fixed width for icon buttons */
+    height: 40px; /* Fixed height for icon buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.8em; /* Example icon size, adjust as needed or use icons */
+    color: #555;
+    transition: background-color 0.2s;
+}
+
+.right-sidebar .control-button:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Toast Styles - No changes needed for responsiveness in this section for now */
+.Toastify__toast-container--top-center {
+    top: 20px; /* Adjust top position */
+}
+
+.Toastify__toast {
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add a subtle shadow */
+}
+
+.Toastify__toast-body {
+    font-family: 'Inter', sans-serif; /* Match font */
+    color: #333; /* Darker text in toast */
+}
+
+.Toastify__toast h4 {
+    margin: 0 0 10px 0;
+    color: #2c3e50; /* Darker title color */
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.Toastify__toast p {
+    margin: 5px 0;
+    color: #555; /* Slightly darker paragraph text */
+    font-size: 0.9em;
+}
+
+.Toastify__toast strong {
+    color: #333; /* Strong text color */
+    font-weight: bold;
+}
+
+
+/* Ensure map container in MyMap.jsx takes full width and height - No changes needed for responsiveness in this section for now */
+.react-map-container { /* Assuming this is the class from @react-map/world, adjust if different */
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller desktops (example breakpoint: 992px) */
+@media (max-width: 992px) {
+    .app-body {
+        flex-direction: column; /* Stack sidebars and map vertically */
+        height: auto; /* Adjust height to content */
+    }
+
+    .left-sidebar, .right-sidebar {
+        width: 100%; /* Sidebars take full width */
+        border-right: none; /* Remove right border from left sidebar */
+        border-left: none;  /* Remove left border from right sidebar */
+        border-bottom: 1px solid #e0e0e0; /* Add bottom border to separate sections */
+    }
+
+    .map-container {
+        height: 500px; /* Example map height for smaller screens, adjust as needed */
+    }
+
+    .right-sidebar {
+        flex-direction: row; /* Arrange right sidebar controls horizontally */
+        justify-content: space-around; /* Distribute controls evenly */
+        align-items: center; /* Center items vertically in the row */
+        padding: 10px 0; /* Adjust padding for horizontal layout */
+    }
+
+    .right-sidebar .other-controls {
+        flex-direction: row; /* Ensure controls are in a row */
+        justify-content: space-around; /* Distribute buttons */
+        width: 100%; /* Take full width of right sidebar */
+        margin-top: 0; /* Remove top margin */
+    }
+
+    .right-sidebar .control-button {
+        margin: 0 5px; /* Add horizontal margin between buttons */
+        margin-bottom: 0; /* Remove bottom margin */
+    }
+}
+
+
+/* For mobile devices (example breakpoint: 768px) */
+@media (max-width: 768px) {
+    .header-nav ul {
+        flex-direction: column; /* Stack navigation links in header */
+        text-align: center; /* Center align links */
+    }
+
+    .header-nav li {
+        margin-left: 0;
+        margin-top: 10px; /* Add vertical spacing between nav links */
+    }
+
+    .header-right {
+        flex-direction: column; /* Stack header right elements */
+        text-align: center; /* Center align header right elements */
+    }
+
+    .header-right .toggle-group,
+    .header-right .zoom-plus,
+    .header-right .access-api-button {
+        margin-left: 0; /* Remove left margin */
+        margin-top: 10px; /* Add vertical spacing */
+    }
+
+    .sidebar-header h1 {
+        font-size: 1.3em; /* Smaller header font size on mobile */
+    }
+
+    .sidebar-header p {
+        font-size: 0.85em; /* Smaller paragraph font size on mobile */
+    }
+
+    .ranked-list li span.flag {
+        font-size: 1em; /* Slightly smaller flag size on mobile */
+    }
+
+    .date-time-picker span {
+        font-size: 0.85em; /* Smaller date/time text on mobile */
+    }
+
+    .timeline-buttons {
+        flex-direction: column; /* Stack timeline buttons on mobile */
+        align-items: stretch; /* Make buttons full width */
+    }
+
+    .timeline-button {
+        margin-bottom: 5px; /* Vertical spacing for stacked buttons */
+        text-align: center; /* Center text in buttons */
+    }
+
+    .map-container {
+        height: 300px; /* Even smaller map height for mobile */
+    }
+
+    .right-sidebar {
+        flex-direction: column; /* Stack right sidebar controls vertically again for very small screens */
+    }
+
+    .right-sidebar .other-controls {
+        flex-direction: column; /* Stack controls vertically */
+    }
+
+    .right-sidebar .control-button {
+        margin: 5px 0; /* Add vertical margin, remove horizontal margin */
+        width: 100%; /* Make buttons full width on very small screens if needed */
+        box-sizing: border-box; /* Include padding and border in button width */
+    }
+}
