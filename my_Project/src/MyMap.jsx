@@ -9,7 +9,7 @@ import worldGeoJSON from '../world_countries.json';
 const MAPTILER_ACCESS_TOKEN = import.meta.env.VITE_MAPTILER_ACCESS_TOKEN;
 const MAP_STYLE_URL = `https://api.maptiler.com/maps/streets-v2/style.json?key=${MAPTILER_ACCESS_TOKEN}`;
 
-const CURRENT_USER = 'Zaatra';
+const CURRENT_USER = 'Ameer';
 
 const MyMap = () => {
     const [currentTime, setCurrentTime] = useState('');

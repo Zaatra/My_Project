@@ -1,0 +1,54 @@
+.ranked-list {
+    background-color: #f9f5f5; /* Light background for contrast */
+    border-radius: 8px;       /* Rounded corners for a softer look */
+    overflow: hidden;          /* Ensure rounded corners work with inner elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+    padding: 15px;             /* Padding inside the list container */
+}
+
+.ranked-list ul {
+    list-style: none;          /* Remove default bullet points */
+    padding: 0;               /* Reset default ul padding */
+    margin: 0;                /* Reset default ul margin */
+}
+
+.ranked-list li {
+    max-width: 100%;
+    display: flex;             /* Use Flexbox for easy alignment */
+    align-items: center; 
+    justify-content: start; 
+    padding: 10px 15px;        /* Padding within each list item */
+    border-bottom: 1px solid #eee; /* Light separator line between items */
+    transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.ranked-list li:last-child {
+    border-bottom: none;       /* Remove border from the last list item */
+}
+
+.ranked-list li:hover {
+    background-color: #f0f0f0; /* Slightly darker background on hover */
+}
+
+.ranked-list li span:first-child {
+    font-weight: 600;          /* Make rank number bolder */
+    color: #333;              /* Darker color for rank number */
+    margin-right: 15px;        /* Spacing between rank and flag/text */
+    width: 20px;              /* Fixed width for rank numbers to align */
+    text-align: left;         /* Right-align rank numbers within their width */
+    display: inline-block;    /* Ensure width is respected */
+}
+
+.ranked-list .flag {
+    font-size: 1.2em;          /* Slightly larger flag size */
+    margin-right: 10px;        /* Spacing after the flag */
+    display: inline-block;
+    text-align: left;    /* For consistent spacing */
+}
+
+.ranked-list .location {
+    color: #777;              /* Muted color for location */
+    font-style: italic;       /* Italic style to differentiate location */
+    margin-right: auto;        /* Push location to the right end */
+    font-size: 0.9em;          /* Slightly smaller font size for location */
+}

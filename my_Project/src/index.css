@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light;
@@ -12,7 +12,8 @@
 }
 
 /* Basic reset to remove default margins and paddings from browser */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -20,4 +21,7 @@ html, body {
 body {
   min-width: 100vw; /* Ensure body takes full viewport width */
   overflow-x: hidden; /* Prevent horizontal scrollbar if content overflows slightly */
+}
+header {
+  background-color: #333;
 }
