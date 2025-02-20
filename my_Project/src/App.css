@@ -1,3 +1,6 @@
+/* Import external resources first */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
 :root {
   --primary-color: #007bff; /* Example primary blue - adjust to your brand color */
   --secondary-color: #6c757d; /* Example secondary grey */
@@ -139,10 +142,7 @@ body {
 
 .header-right .zoom-plus:hover,
 .header-right .access-api-button:hover {
-  background-color: darken(
-    var(--primary-color),
-    10%
-  ); /* Darken on hover - you might need a CSS preprocessor or function for `darken` */
+  background-color: #0056b3; /* Darker shade of primary color on hover */
 }
 
 /* App Body Layout (Sidebars and Map) */
@@ -209,12 +209,22 @@ body {
   font-size: 1rem;
   color: var(--text-dark); /* Using variable for text color */
   transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-size: 16px;
+  padding-left: 45px;
 }
 
 .search-bar input[type="text"]:focus {
   outline: none;
   border-color: var(--primary-color); /* Primary color on focus */
-  box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25); /* Subtle focus shadow - you'd need to define --primary-color-rgb if using this */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Subtle focus shadow */
+}
+
+.search-bar input[type="text"]::placeholder {
+  color: var(--text-light);
+  opacity: 0.7;
 }
 
 .ranked-list ul {
@@ -250,6 +260,17 @@ body {
   color: var(--text-light); /* Using variable for text color */
   margin-left: auto;
   font-size: 0.9rem;
+}
+
+/* Intensity value in ranked list */
+.ranked-list .intensity {
+  margin-left: auto;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.85em;
 }
 
 .about-section {
@@ -289,6 +310,11 @@ body {
   line-height: 1.6; /* Improved line height */
 }
 
+/* Make the about section more readable */
+.about-content p {
+  margin-bottom: 12px;
+}
+
 .datetime-controls {
   margin-top: 25px;
   border-top: 1px solid var(--border-color); /* Using variable for border */
@@ -320,6 +346,13 @@ body {
   border-color: var(--primary-color); /* Primary color border on hover */
 }
 
+/* Active timeline button styling */
+.timeline-button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
 .date-time-picker {
   display: flex;
   justify-content: space-between;
@@ -344,6 +377,18 @@ body {
   font-weight: 500; /* Medium font weight for date/time */
 }
 
+/* Live button styling */
+.date-time-picker button.active {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Disabled buttons */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .time-slider {
   /* Style the slider bar and handle as needed */
 }
@@ -363,7 +408,21 @@ body {
   border-radius: 50%;
   cursor: grab;
   box-shadow: var(--box-shadow-light); /* Add shadow to handle */
+  transition: left 0.3s ease;
 }
+
+.time-slider .slider-handle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+}
+
 .time-slider .time-labels {
   display: flex;
   justify-content: space-between;
@@ -388,22 +447,53 @@ body {
   border-radius: 50%; /* Make buttons circular */
   padding: 10px;
   margin-bottom: 10px;
-  width: 100px; /* Slightly larger buttons */
-  height: 60px; /* Slightly larger buttons */
+  width: 60px; /* Fixed size for buttons */
+  height: 60px; /* Fixed size for buttons */
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: 1rem; /* Slightly larger icon size */
+  font-size: 1rem; /* Icon size */
   color: var(--text-dark); /* Using variable for text color */
   transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth transitions */
   box-shadow: var(--box-shadow-light); /* Add shadow to buttons */
+  position: relative;
 }
 
 .right-sidebar .control-button:hover {
   background-color: var(--primary-color); /* Primary color on hover */
   color: white; /* White icon color on hover */
   border-color: var(--primary-color); /* Primary color border on hover */
+}
+
+/* Better 3D mode indicator */
+.control-button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Control button tooltips */
+.control-tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  pointer-events: none;
+}
+
+.control-button:hover .control-tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Toast Styles */
@@ -440,6 +530,31 @@ body {
 .Toastify__toast strong {
   color: var(--text-dark); /* Using variable for text color */
   font-weight: 600; /* Semi-bold strong text */
+}
+
+/* Loading indicator */
+.loading-indicator {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Search highlight */
+.search-highlight {
+  background-color: rgba(255, 255, 0, 0.3);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* Better map overlay styling */
+.map-legend {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-light);
+  padding: 12px 15px;
+  font-size: 0.9rem;
 }
 
 /* Media Queries for Responsiveness */
@@ -532,11 +647,16 @@ body {
   .timeline-buttons {
     flex-direction: column;
     align-items: stretch;
+    gap: 8px;
   }
 
   .timeline-button {
     margin-bottom: 8px; /* Vertical spacing for stacked buttons */
     text-align: center;
+    flex: 1;
+    min-width: 0;
+    padding: 8px 5px;
+    font-size: 0.85rem;
   }
 
   .map-container {
@@ -553,26 +673,87 @@ body {
 
   .right-sidebar .control-button {
     margin: 8px 0;
-    width: 100%; /* Full width buttons on very small screens */
-    box-sizing: border-box;
-    border-radius: var(
-      --border-radius
-    ); /* Revert to rounded corners on small screens */
-    height: auto; /* Auto height for text buttons if you decide to use text on mobile */
-    padding: 12px; /* Adjust padding for smaller screens */
-    font-size: 1rem; /* Adjust font size */
-    border-radius: var(
-      --border-radius
-    ); /* Use standard border radius for mobile buttons */
-    width: 100%; /* Full width buttons on mobile */
-    height: auto; /* Auto height for mobile buttons */
-    border-radius: var(--border-radius); /* Standard border radius for mobile */
-    font-size: 1rem; /* Adjust font size */
-    border-radius: var(
-      --border-radius
-    ); /* Standard border radius for mobile buttons */
     width: 45px; /* Fixed width for icon buttons on mobile */
     height: 45px; /* Fixed height for icon buttons on mobile */
     border-radius: 50%; /* Circular buttons on mobile */
   }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-light: #2a2a2a;
+    --background-dark: #1a1a1a;
+    --text-dark: #f0f0f0;
+    --text-light: #b0b0b0;
+    --border-color: #444;
+    --box-shadow-light: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  }
+  
+  .electricity-maps-header {
+    background-color: #2a2a2a;
+  }
+  
+  .search-bar input[type="text"] {
+    background-color: #333;
+    color: var(--text-dark);
+  }
+  
+  .ranked-list {
+    background-color: #2a2a2a;
+  }
+  
+  .ranked-list li:hover {
+    background-color: #3a3a3a;
+  }
+  
+  .timeline-button {
+    background-color: #333;
+    color: var(--text-light);
+  }
+  
+  .control-button {
+    background-color: #333;
+    color: var(--text-light);
+  }
+  
+  .map-legend {
+    background-color: rgba(42, 42, 42, 0.9);
+  }
+}
+.datetime-input-container {
+  margin-top: 10px;
+  position: relative;
+}
+
+.datetime-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.live-indicator {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: rgba(255, 0, 0, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.debug-panel {
+  margin-top: 15px;
+  font-size: 12px;
+  background: #f5f5f5;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.note {
+  font-style: italic;
+  color: #666;
+  font-size: 12px;
 }
