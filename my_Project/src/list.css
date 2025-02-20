@@ -18,8 +18,8 @@
 .ranked-list li {
     max-width: 100%;
     display: flex;             /* Use Flexbox for easy alignment */
-    align-items: center; 
-    justify-content: start; 
+    align-items: center;
+    justify-content: start;
     padding: 10px 15px;        /* Padding within each list item */
     border-bottom: 1px solid #eee; /* Light separator line between items */
     transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
@@ -73,13 +73,13 @@
     color: white;
     border-color: var(--primary-color, #007bff);
 }
-  
+
 /* Live button styling */
 .date-time-picker button.active {
     color: var(--primary-color, #007bff);
     font-weight: bold;
 }
-  
+
 /* Loading indicator */
 .loading-indicator {
     text-align: center;
@@ -87,7 +87,7 @@
     color: var(--text-light, #6c757d);
     font-style: italic;
 }
-  
+
 /* Control button tooltips */
 .control-tooltip {
     position: absolute;
@@ -106,34 +106,34 @@
     transition: opacity 0.2s, visibility 0.2s;
     pointer-events: none;
 }
-  
+
 .control-button {
     position: relative;
 }
-  
+
 .control-button:hover .control-tooltip {
     opacity: 1;
     visibility: visible;
 }
-  
+
 /* Search highlight */
 .search-highlight {
     background-color: rgba(255, 255, 0, 0.3);
     padding: 0 2px;
     border-radius: 2px;
 }
-  
+
 /* Disabled buttons */
 button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
-  
+
 /* Time slider improvements */
 .time-slider .slider-handle {
     transition: left 0.3s ease;
 }
-  
+
 .time-slider .slider-handle::after {
     content: '';
     position: absolute;
@@ -145,18 +145,18 @@ button:disabled {
     background-color: white;
     border-radius: 50%;
 }
-  
+
 /* Better 3D mode indicator */
 .control-button.active {
     background-color: var(--primary-color, #007bff);
     color: white;
 }
-  
+
 /* Make the about section more readable */
 .about-content p {
     margin-bottom: 12px;
 }
-  
+
 /* Better map overlay styling */
 .map-legend {
     background-color: rgba(255, 255, 255, 0.9);
@@ -173,42 +173,42 @@ button:disabled {
         background-color: #2a2a2a;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
-    
+
     .ranked-list li {
         border-bottom-color: #444;
     }
-    
+
     .ranked-list li:hover {
         background-color: #3a3a3a;
     }
-    
+
     .ranked-list li span:first-child {
         color: #f0f0f0;
     }
-    
+
     .ranked-list .location {
         color: #b0b0b0;
     }
-    
+
     .ranked-list .intensity {
         background: rgba(255, 255, 255, 0.1);
     }
-    
+
     .search-bar input[type="text"] {
         background-color: #333;
         color: #f0f0f0;
     }
-    
+
     .timeline-button {
         background-color: #333;
         color: #b0b0b0;
     }
-    
+
     .control-button {
         background-color: #333;
         color: #b0b0b0;
     }
-    
+
     .map-legend {
         background-color: rgba(42, 42, 42, 0.9);
     }

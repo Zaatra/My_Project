@@ -930,27 +930,28 @@ function App() {
             )}
           </div>
         </aside>
-        <main className="map-container">
-          <MyMap 
-            selectedDate={isLiveMode ? new Date() : selectedDate}
-            selectedTimeRange={selectedTimeRange}
-            viewMode={viewMode}
-            zoneViewEnabled={zoneViewEnabled}
-            csvDataPath={CSV_DATA_PATH}
-            isLiveMode={isLiveMode}
-            {...mapDataWithDebug()}
-          />
-          {loadError && filteredData.length === 0 && (
-            <div className="map-error-overlay">
-              <div className="map-error-message">
-                Unable to load map data
-                <button onClick={() => window.location.reload()}>
-                  Reload
-                </button>
-              </div>
-            </div>
-          )}
-        </main>
+        <main className="main">
+  <MyMap 
+    selectedDate={isLiveMode ? new Date() : selectedDate}
+    selectedTimeRange={selectedTimeRange}
+    viewMode={viewMode}
+    zoneViewEnabled={zoneViewEnabled}
+    csvDataPath={CSV_DATA_PATH}
+    isLiveMode={isLiveMode}
+    {...mapDataWithDebug()}
+  />
+  {loadError && filteredData.length === 0 && (
+    <div className="map-error-overlay">
+      <div className="map-error-message">
+        Unable to load map data
+        <button onClick={() => window.location.reload()}>
+          Reload
+        </button>
+      </div>
+    </div>
+  )}
+</main>
+
         <aside className="right-sidebar">
           <div className="zoom-controls">
           </div>
